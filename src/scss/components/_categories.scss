@@ -1,0 +1,37 @@
+@use '../abstracts' as *;
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem 0;
+  h1 {
+    font-family: $ff-categories-header;
+    font-size: $fs-categories-header;
+    color: $fc-categories-header;
+    text-shadow: 0 5px 2px #000;
+    margin: 2rem 0;
+  }
+  .categories-card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: auto auto;
+    grid-column-gap: 7rem;
+    grid-row-gap: 3em;
+  }
+  .categories-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+  }
+  .card-img-wrapper {
+    width: 15em;
+    height: 15em;
+    background: blue;
+    border-radius: 20px;
+  }
+  .card-title {
+    
+  }
+}

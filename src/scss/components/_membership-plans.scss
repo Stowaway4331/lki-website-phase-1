@@ -1,0 +1,55 @@
+@use '../abstracts' as *;
+
+.membership-plans {
+  margin-top: 2em;
+  width: 100%;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .membership-plans-title {
+      align-self: flex-start;
+      margin-left: 1em;
+
+    }
+
+    .plans-container {
+      width: 100%;
+      margin: 5em 0;
+      display: flex;
+      justify-content: center;
+      gap: 10%;
+
+      .plan-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid white;
+        width: 25%;
+        max-width: 15em;
+
+        &:nth-child(2) {
+          transform: scale(1.25, 1.25);
+          z-index: -1;
+        }
+
+        img {
+          min-width: 100%;
+          aspect-ratio: 1;
+  
+          // font-size: 5em;
+          text-align: center;
+          // line-height: 300px;
+          background-color: yellowgreen;
+          border-radius: 7px;
+        }
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

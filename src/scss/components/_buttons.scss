@@ -1,0 +1,22 @@
+@use '../abstracts' as *;
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: $ff-categories-card-title;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: black;
+  max-width: 9em;
+  min-width: 7em;
+  line-height: 1;
+  background: $purple;
+  padding: 0.25em 1em;
+  box-shadow: 0 0 0 2px #fff,
+    0 0 0 8px $purple;
+  border-radius: 20% 23% 30% 25% / 40% 21% 26% 27% ;
+
+  &:hover {
+    border-radius: 33% 33% 53% 32% / 30% 25% 33% 19%;
+  }
+}

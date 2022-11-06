@@ -1,0 +1,182 @@
+@use '../abstracts' as *;
+
+
+// Hero Slideshow Carousel
+
+.carousel-container {
+  margin: 10em 0 2em 0;
+  width: 100%;
+  position: relative;
+  // &::after,
+  // &::before {
+  //   content: '';
+  //   width: 10px;
+  //   height: inherit;
+  //   border: 1px solid black;
+  //   position: absolute;
+  //   inset: 0;
+  //   transform: translateX(-50%);
+  // }
+  // &::before {
+  //   left: 5%;
+  //   // background-image: url('../../assets/arrow-left.png');
+  // }
+  // &::after {
+  //   left: 95%;
+  // }
+}
+
+.slideshow-carousel {
+  display: flex;
+  gap: 5em;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  /* Hide the scrollbar for MS Edge */
+  scrollbar-width: none;
+  /* Hide the scrollbar for Mozilla Firefox */
+
+  margin: 0 auto 0 auto;
+  width: 80%;
+  height: 100%;
+  border-radius: 12.5% / 27.5%;
+  max-width: 900px;
+  scroll-snap-type: x mandatory;
+
+
+  &::-webkit-scrollbar {
+    display: none;
+    /* Hide the scrollbar on Webkit based browsers (Chrome, Safari, etc) */
+    -webkit-overflow-scrolling: touch;
+    /* On touch screens the content continues to scroll for a while after finishing the scroll gesture */
+  }
+
+  .slide-item {
+    // min-width: 90%;
+    // min-height: 20vh;
+    scroll-snap-align: start;
+    min-width: 100%;
+    min-height: 40vh;
+    height: 30vw;
+    text-align: center;
+    border-radius: 12.5% / 27.5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+
+    &-title, &-desc {
+      position: absolute;
+      transform: translateX(-50%);
+      width: 35%;
+      height: 45%;
+      border-radius: 0% 0% 47% 25% / 25% 25% 35% 38% ;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h1 {
+        font-size: 1.75rem;
+        color: gold;
+        text-shadow: 0 2px 0 rgba(174, 174, 174);
+        line-height: 1.25;
+      }
+
+      span {
+        font-size: 3rem;
+        color: gold;
+        text-shadow: 0 2px 0 rgb(174, 174, 174);
+        margin: 0.2em;
+      }
+
+      p {
+        transform: rotateZ(-180deg);
+        padding: 0.5em 0.5em 0 0.5em;
+        color: brown;
+      }
+    }
+
+    &-title {
+      top: -1%;
+      left: 50%;
+      width: 50%;
+      background: rgba($color: $bg-header, $alpha: 0.9);
+      box-shadow: 0 0 0.5em 5px rgba($color: $bg-header, $alpha: 0.9);
+      font-family: $ff-categories-header;
+    }
+
+    &-desc {
+      box-shadow: 0 15px 0 -10px gold ;
+      bottom: -1%;
+      left: 20%;
+      transform: translateX(-50%) rotateZ(180deg);
+      background: rgba($color: $bg-header, $alpha: 0.9);
+    }
+    
+  }
+}
+
+
+// Card products carousel
+
+.card-products {
+  margin: 10em 0 0 0;
+  width: 100%;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .products-title {
+      align-self: flex-start;
+      margin-left: 1em;
+
+    }
+
+    .products-container {
+      display: flex;
+      gap: 5%;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      /* Hide the scrollbar for MS Edge */
+      scrollbar-width: none;
+      /* Hide the scrollbar for Mozilla Firefox */
+
+      margin: 3em 0;
+      width: 90%;
+      height: fit-content;
+
+      border: 1px solid white;
+
+      &::-webkit-scrollbar {
+        display: none;
+        /* Hide the scrollbar on Webkit based browsers (Chrome, Safari, etc) */
+        -webkit-overflow-scrolling: touch;
+        /* On touch screens the content continues to scroll for a while after finishing the scroll gesture */
+      }
+
+      .products-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+          min-width: 10em;
+          min-height: 10em;
+  
+          // font-size: 5em;
+          text-align: center;
+          // line-height: 300px;
+          background-color: yellowgreen;
+          border-radius: 7px;
+        }
+      }
+
+      @media (min-width: 950px) {
+        justify-content: center;
+      }
+    }
+  }
+}

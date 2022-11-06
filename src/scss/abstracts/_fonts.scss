@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=La+Belle+Aurore&display=swap');
+// @font-face {
+//   font-family: '3dumb';
+//   src: url('../../assets/3Dumb-webfont.woff') format('woff');
+  
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: '2dumb';
+//   src: url('../../assets/2Dumb-webfont.woff') format('woff');
+  
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+$ff-categories-header: 'Henny Penny', cursive;
+$fs-categories-header: 4rem;
+$fc-categories-header: rgb(255, 227, 71) /* #fcfeff */;
+$ff-categories-card-title: 'La Belle Aurore', cursive;
+// $ff-categories-header: '3dumb';
+// $ff-categories-card-title: '2dumb';
+$ff-header: 'Quicksand', sans-serif; 

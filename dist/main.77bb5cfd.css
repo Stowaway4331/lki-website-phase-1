@@ -1,0 +1,491 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700");
+@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&family=La+Belle+Aurore&display=swap");
+header {
+  font-family: "Quicksand", sans-serif;
+  background: white;
+  color: black;
+  padding: 1em 0;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 1em 5em rgba(0, 0, 0, 0.2);
+  border-radius: 0% 0% 50% 50%/0% 0% 20% 20%;
+}
+header::after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.container {
+  width: 95%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  float: left;
+  font-size: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.logo img {
+  height: 2em;
+}
+
+.site-nav {
+  position: absolute;
+  width: 100vw;
+  top: 80%;
+  right: 0%;
+  background: white;
+  clip-path: circle(0px at top right);
+  transition: clip-path ease-in-out 0.5s;
+  border-radius: 18% 0% 0% 18%/79% 22% 8% 79%;
+  overflow: hidden;
+}
+.site-nav--open {
+  clip-path: circle(150% at top right);
+  box-shadow: 0 2em 5em -4em black;
+}
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-nav li {
+  border-bottom: 1px solid darkgrey;
+  text-align: center;
+}
+.site-nav li:last-child {
+  border-bottom: none;
+}
+.site-nav a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 2em 4em 2em 1.5em;
+  text-transform: uppercase;
+  transition: all ease-in-out 0.1s;
+}
+.site-nav a:focus,
+.site-nav a:hover {
+  background: rgba(173, 216, 230, 0.8);
+}
+.site-nav--icon {
+  display: inline-block;
+  font-size: 1.5em;
+  margin-right: 1em;
+  width: 1.1em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.3137254902);
+}
+
+.menu-toggle {
+  padding: 1em;
+  position: absolute;
+  right: 0.5em;
+  cursor: pointer;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  background: black;
+  height: 3px;
+  width: 1.5em;
+  border-radius: 3px;
+  transition: all ease-in-out 0.5s;
+}
+
+.hamburger::before {
+  transform: translateY(-6px);
+}
+
+.hamburger::after {
+  transform: translateY(3px);
+}
+
+.open .hamburger {
+  transform: rotate(45deg);
+}
+
+.open .hamburger::before {
+  opacity: 0;
+}
+
+.open .hamburger::after {
+  transform: translateY(-3px) rotate(-90deg);
+}
+
+@media (min-width: 360px) {
+  .site-nav {
+    width: auto;
+  }
+}
+body {
+  height: 100vh;
+  background: #56CFFD;
+  background-repeat: no-repeat;
+}
+
+.cursor {
+  z-index: 1000;
+  width: 20px;
+  height: 20px;
+  border: 3px solid green;
+  border-radius: 50%;
+  position: absolute;
+  transition-duration: 50ms;
+  transition-timing-function: ease-out;
+  animation: cursorAnim 0.5s infinite alternate;
+}
+@keyframes cursorAnim {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.7);
+  }
+}
+.cursor::after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border: 3px solid lightyellow;
+  border-radius: 50%;
+  opacity: 0.5;
+  top: -3px;
+  left: -3px;
+  animation: cursorAnim1 0.5s infinite alternate;
+}
+@keyframes cursorAnim1 {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(2);
+  }
+}
+
+.expand {
+  animation: cursorAnim2 0.5s forwards;
+  border: 3px solid red;
+}
+@keyframes cursorAnim2 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2.5);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.carousel-container {
+  margin: 10em 0 2em 0;
+  width: 100%;
+  position: relative;
+}
+
+.slideshow-carousel {
+  display: flex;
+  gap: 5em;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  /* Hide the scrollbar for MS Edge */
+  scrollbar-width: none;
+  /* Hide the scrollbar for Mozilla Firefox */
+  margin: 0 auto 0 auto;
+  width: 80%;
+  height: 100%;
+  border-radius: 12.5%/27.5%;
+  max-width: 900px;
+  scroll-snap-type: x mandatory;
+}
+.slideshow-carousel::-webkit-scrollbar {
+  display: none;
+  /* Hide the scrollbar on Webkit based browsers (Chrome, Safari, etc) */
+  -webkit-overflow-scrolling: touch;
+  /* On touch screens the content continues to scroll for a while after finishing the scroll gesture */
+}
+.slideshow-carousel .slide-item {
+  scroll-snap-align: start;
+  min-width: 100%;
+  min-height: 40vh;
+  height: 30vw;
+  text-align: center;
+  border-radius: 12.5%/27.5%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+.slideshow-carousel .slide-item-title, .slideshow-carousel .slide-item-desc {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 35%;
+  height: 45%;
+  border-radius: 0% 0% 47% 25%/25% 25% 35% 38%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slideshow-carousel .slide-item-title h1, .slideshow-carousel .slide-item-desc h1 {
+  font-size: 1.75rem;
+  color: gold;
+  text-shadow: 0 2px 0 rgb(174, 174, 174);
+  line-height: 1.25;
+}
+.slideshow-carousel .slide-item-title span, .slideshow-carousel .slide-item-desc span {
+  font-size: 3rem;
+  color: gold;
+  text-shadow: 0 2px 0 rgb(174, 174, 174);
+  margin: 0.2em;
+}
+.slideshow-carousel .slide-item-title p, .slideshow-carousel .slide-item-desc p {
+  transform: rotateZ(-180deg);
+  padding: 0.5em 0.5em 0 0.5em;
+  color: brown;
+}
+.slideshow-carousel .slide-item-title {
+  top: -1%;
+  left: 50%;
+  width: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0.5em 5px rgba(255, 255, 255, 0.9);
+  font-family: "Henny Penny", cursive;
+}
+.slideshow-carousel .slide-item-desc {
+  box-shadow: 0 15px 0 -10px gold;
+  bottom: -1%;
+  left: 20%;
+  transform: translateX(-50%) rotateZ(180deg);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.card-products {
+  margin: 10em 0 0 0;
+  width: 100%;
+}
+.card-products-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-products-container .products-title {
+  align-self: flex-start;
+  margin-left: 1em;
+}
+.card-products-container .products-container {
+  display: flex;
+  gap: 5%;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  /* Hide the scrollbar for MS Edge */
+  scrollbar-width: none;
+  /* Hide the scrollbar for Mozilla Firefox */
+  margin: 3em 0;
+  width: 90%;
+  height: fit-content;
+  border: 1px solid white;
+}
+.card-products-container .products-container::-webkit-scrollbar {
+  display: none;
+  /* Hide the scrollbar on Webkit based browsers (Chrome, Safari, etc) */
+  -webkit-overflow-scrolling: touch;
+  /* On touch screens the content continues to scroll for a while after finishing the scroll gesture */
+}
+.card-products-container .products-container .products-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-products-container .products-container .products-item img {
+  min-width: 10em;
+  min-height: 10em;
+  text-align: center;
+  background-color: yellowgreen;
+  border-radius: 7px;
+}
+@media (min-width: 950px) {
+  .card-products-container .products-container {
+    justify-content: center;
+  }
+}
+
+main {
+  width: 90%;
+  height: 100%;
+  margin: 0 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+.categories h1 {
+  font-family: "Henny Penny", cursive;
+  font-size: 4rem;
+  color: rgb(255, 227, 71);
+  text-shadow: 0 5px 2px #000;
+  margin: 2rem 0;
+}
+.categories .categories-card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: auto auto;
+  grid-column-gap: 7rem;
+  grid-row-gap: 3em;
+}
+.categories .categories-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+.categories .card-img-wrapper {
+  width: 15em;
+  height: 15em;
+  background: blue;
+  border-radius: 20px;
+}
+button {
+  border: none;
+  cursor: pointer;
+  font-family: "La Belle Aurore", cursive;
+  font-weight: 700;
+  font-size: 1.5em;
+  color: black;
+  max-width: 9em;
+  min-width: 7em;
+  line-height: 1;
+  background: #9b75ff;
+  padding: 0.25em 1em;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 8px #9b75ff;
+  border-radius: 20% 23% 30% 25%/40% 21% 26% 27%;
+}
+button:hover {
+  border-radius: 33% 33% 53% 32%/30% 25% 33% 19%;
+}
+
+.membership-plans {
+  margin-top: 2em;
+  width: 100%;
+}
+.membership-plans-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.membership-plans-container .membership-plans-title {
+  align-self: flex-start;
+  margin-left: 1em;
+}
+.membership-plans-container .plans-container {
+  width: 100%;
+  margin: 5em 0;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+.membership-plans-container .plans-container .plan-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid white;
+  width: 25%;
+  max-width: 15em;
+}
+.membership-plans-container .plans-container .plan-item:nth-child(2) {
+  transform: scale(1.25, 1.25);
+  z-index: -1;
+}
+.membership-plans-container .plans-container .plan-item img {
+  min-width: 100%;
+  aspect-ratio: 1;
+  text-align: center;
+  background-color: yellowgreen;
+  border-radius: 7px;
+}
+.membership-plans-container .plans-container .plan-item p {
+  text-align: center;
+}
+
+.faq {
+  margin-top: 2em;
+  width: 100%;
+}
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.faq-container .faq-title {
+  align-self: flex-start;
+  margin-left: 1em;
+  max-width: 100%;
+  line-height: 1.5;
+}
+.faq-container .faq-items-container {
+  width: 100%;
+  margin: 5em 0;
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+.faq-container .faq-items-container .faq-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid white;
+  width: 25%;
+  max-width: 15em;
+}
+.faq-container .faq-items-container .faq-item img {
+  min-width: 100%;
+  aspect-ratio: 1;
+  text-align: center;
+  background-color: yellowgreen;
+  border-radius: 7px;
+}
+.faq-container .faq-items-container .faq-item p {
+  text-align: center;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+
+/*# sourceMappingURL=/main.77bb5cfd.css.map */
